@@ -1,0 +1,104 @@
+# 构建目录和文件
+build/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+
+# 编译生成的文件
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+*.lo
+*.la
+*.al
+*.so.*
+*.dylib.*
+*.dll.*
+*.a.*
+*.lib.*
+
+# 调试文件
+*.pdb
+*.ilk
+*.exp
+*.idb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# 临时文件
+*~
+*.swp
+*.swo
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# IDE 和编辑器文件
+.vscode/
+.idea/
+.cache/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.ncb
+*.aps
+*.pch
+*.vspscc
+*.vssscc
+*.scc
+
+# 日志文件
+*.log
+logs/
+
+# 测试覆盖率报告
+coverage/
+*.gcov
+*.gcno
+*.gcda
+lcov.info
+
+# 包管理器
+conan.lock
+conandata.yml
+conanfile.txt
+conanfile.py
+
+# 其他
+*.orig
+*.rej
+.directory

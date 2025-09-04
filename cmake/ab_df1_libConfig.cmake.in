@@ -1,0 +1,43 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+# 检查组件
+set(_ab_df1_lib_supported_components static shared)
+
+foreach(_comp ${ab_df1_lib_FIND_COMPONENTS})
+    if (NOT _comp IN_LIST _ab_df1_lib_supported_components)
+        set(ab_df1_lib_FOUND False)
+        set(ab_df1_lib_NOT_FOUND_MESSAGE "Unsupported component: ${_comp}")
+    endif()
+endforeach()
+
+# 包含目标文件
+include("${CMAKE_CURRENT_LIST_DIR}/ab_df1_libTargets.cmake")
+
+# 检查目标是否存在
+if(NOT TARGET ab_df1::static AND NOT TARGET ab_df1::shared)
+    set(ab_df1_lib_FOUND False)
+    set(ab_df1_lib_NOT_FOUND_MESSAGE "No ab_df1 targets found")
+    return()
+endif()
+
+# 设置默认组件
+if(NOT ab_df1_lib_FIND_COMPONENTS)
+    if(TARGET ab_df1::static)
+        set(ab_df1_lib_FIND_COMPONENTS static)
+    else()
+        set(ab_df1_lib_FIND_COMPONENTS shared)
+    endif()
+endif()
+
+# 验证请求的组件
+foreach(_comp ${ab_df1_lib_FIND_COMPONENTS})
+    if(NOT TARGET ab_df1::${_comp})
+        set(ab_df1_lib_FOUND False)
+        set(ab_df1_lib_NOT_FOUND_MESSAGE "Component ${_comp} not found")
+        return()
+    endif()
+endforeach()
+
+check_required_components(ab_df1_lib)
